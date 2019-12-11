@@ -102,6 +102,27 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 
+// Versão do Desafio
+carro.adicioanrPessoas = (numeroPessoas) =>{
+    
+    let totalPessoas =  carro.quantidadePessoas + numeroPessoas;
+    let pluralOuSingularPessoas = carro.quantidadePessoas > 1 ? "pessoas" : "pessoa";
+    let quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
+
+    if(carro.quantidadePessoas === carro.assentos && totalPessoas >= carro.assentos){
+        return "O carro está lotado!"
+    }
+
+    if(totalPessoas > carro.assentos){
+        return `só cabem mais ${quantasPessoasCabem} no carro ${pluralOuSingularPessoas}`
+    }
+
+    carro.quantidadePessoas += numeroPessoas;
+    return `Já temos ${carro.quantidadePessoas} ${pluralOuSingularPessoas}`;
+
+}
+
+// Versão extra
 carro.entrar = (novo) => {
     let assentosLivres = carro.assentos - carro.quantidadePessoas;
 
@@ -128,24 +149,7 @@ carro.entrar = (novo) => {
 
 }
 
-carro.adicioanrPessoas = (numeroPessoas) =>{
-    
-    let totalPessoas =  carro.quantidadePessoas + numeroPessoas;
-    let pluralOuSingularPessoas = carro.quantidadePessoas > 1 ? "pessoas" : "pessoa";
-    let quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
 
-    if(carro.quantidadePessoas === carro.assentos && totalPessoas >= carro.assentos){
-        return "O carro está lotado!"
-    }
-
-    if(totalPessoas > carro.assentos){
-        return `só cabem mais ${quantasPessoasCabem} no carro ${pluralOuSingularPessoas}`
-    }
-
-    carro.quantidadePessoas += numeroPessoas;
-    return `Já temos ${carro.quantidadePessoas} ${pluralOuSingularPessoas}`;
-
-}
 
 
 /*

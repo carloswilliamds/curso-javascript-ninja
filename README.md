@@ -497,7 +497,6 @@ citado acima, no lugar de "pessoas".
 */
 
 // Versão do Desafio
-
 carro.adicioanrPessoas = (numeroPessoas) =>{
     
     let totalPessoas =  carro.quantidadePessoas + numeroPessoas;
