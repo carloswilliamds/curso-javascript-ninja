@@ -91,11 +91,18 @@
         return arguments[0] + arguments[1]
     }));
 
+    console.log( 'V2 O resultado da soma é:')
+    console.log(sum(function(n1, n2){ 
+        return n1 + n2
+    }));
+
+
     /*
     Agora declare outra variáveis chamadas `subtraction`, `multiplication`,
     `division` e `mod`, e atribua à elas `calculator`, passando números
     diferentes para cada chamada.
     */
+
     let subtraction = calculadora(10,2);
     let multiplication = calculadora(10,5)
     let division = calculadora(1000, 4)
@@ -104,7 +111,8 @@
     /*
     Mostre as variáveis acima no `console` (uma chamada de console por variável),
     criando a função de `callback` que faz o cálculo para subração, multiplicação,
-    divisão e módulo (resto de divisão), conforme a função utilizada.
+    divisão e mód
+    ulo (resto de divisão), conforme a função utilizada.
     As suas respostas devem estar abaixo dos `console.log` referentes à cada
     chamada.
     */
