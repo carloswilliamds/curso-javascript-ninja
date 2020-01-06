@@ -56,7 +56,10 @@ Caso contrário, "false".
 - O desafio é fazer o retorno sem usar "if" ou "switch".
 */
 const isOperatorValid = (operador) =>{
-   return operation[operador] ? true : false
+//    return operation[operador] ? true : false
+//    return operation[operador] !== undefined
+   return !!operation[operador]
+
 }
 console.log(isOperatorValid("*"))
 
@@ -77,7 +80,7 @@ const calculator = (operador) =>{
         return false;
      }
 
-     return function( param1, param2){
+     return function( param1, param2 ){
         if(typeof param1 !== "number" && typeof param2 !== "number"){
             return false;
         } 
