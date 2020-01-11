@@ -35,9 +35,12 @@ esse objeto tem.
 Após o loop, mostre a frase:
 'The person has [COUNTER] properties'
 */
+let counter = 0;
 for(props in person){
     console.log(`The ${props} of person is ${person[props]}`);
+    counter++;
 }
+console.log("person tem " + counter + " propriedades")
 
 /*
 Crie uma função chamada `moreThan`, que vai verificar se a pessoa (objeto
@@ -49,10 +52,7 @@ Após a função, mostrar a mensagem no console:
 let anos = 20;
 const moreThan = (anos) =>{
     const idade = 2020 - person.birthday;
-    if(idade > anos){
-        return true;
-    }
-        return false;
+    return person.age > anos
 }
 console.log(`The person has more than ${anos} years ${moreThan(anos)}`);
 
