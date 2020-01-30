@@ -25,15 +25,18 @@ const Person = function (name, lastName, age){
     this.name = name;
     this.lastName = lastName;
     this.age = age;
-    this.getFullName = ()=> {
+    this.getFullName = function getFullName(){
         console.log(`${this.name} ${this.lastName}`)
+        return this;
     }
-    this.getAge = () =>{
+    this.getAge = function getAge(){
         console.log(this.age)
+        return this;
     }
-    this.addAge = function(){ 
+    this.addAge = function addAge(){ 
         let newAge = arguments.length !== 0 ? arguments[0] : 1
         this.age += newAge;
+        return this;
     }
 }
 /*
