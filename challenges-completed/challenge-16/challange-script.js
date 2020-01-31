@@ -30,15 +30,16 @@ nome, então fique à vontade para usar as artimanhas que já viu até agora no
 curso para fazer isso funcionar corretamente :)
 - Mostre no console o nome no formato slug, e o resultado final. Use um
 console.log para cada formato.
-*/
+*/ 
+
 console.log( '\nNome convertido à partir de um slug:' );
 let fullName = "carlos-william-dos-santos";
 console.log(fullName.split("-").map(element =>{
     
-   let firstUpper = element.charAt(0).toUpperCase();
-   let nameSemfirst = element.slice(1);
+//    let firstUpper = element.charAt(0).toUpperCase();
+//    let nameSemfirst = element.slice(1);
 
-   let nomeArray = firstUpper + nameSemfirst;
+//    let nomeArray = firstUpper + nameSemfirst;
 
     return element.charAt(0).toUpperCase() + element.slice(1);
 }).join(" "))
@@ -52,11 +53,14 @@ O resultado final deve ficar mais ou menos assim:
 5 nomes foi somente uma sugestão ;)
 */
 console.log( '\nMeus amigos:' );
-let amigos = ["Sua Mae", "Sua Prima", "Sua Irma", "Sua Tia"];
-let amigosString = amigos.join(", ")
+let amigos = ["Sua Mae", "Sua Prima", "Sua Irma", "Sua Tia", "Sua vo"];
+let phrase = amigos.reduce( (acumulado, item, index) =>{
+    let separator = amigos.length - 1 === index ? " e " : ", ";
+    return acumulado + separator + item;
+}).concat(" são meus amigos")
 
 
-console.log(amigosString)
+console.log(phrase)
 
 
 /*
@@ -65,7 +69,7 @@ Mostre o resultado no console.
 */
 console.log( '\nEra "Roberto", agora é:' );
 let nomeR = "Roberto";
-console.log(nomeR.replace("o", "A"))
+console.log(nomeR.replace("to", "ta"))
 /*
 
 Mostre no console a parte "nando" da string "Fernando". Use o método que
@@ -74,7 +78,7 @@ faz a busca do final para o início da string.
 console.log( '\nParte de uma string:' );
 let fe = "Fernando";
 console.log(fe.slice(3))
-console.log(fe.substring(3))
+console.log(fe.substring(8, 3))
 
 
 /*
@@ -87,4 +91,14 @@ de qualquer tamanho, escrito de qualquer forma.
 Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
 */
 console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
-let myName = "carlos";
+let myName = "Number One";
+let myNewName = [];
+let newChart = "";
+for(var i=0, lenName = myName.length; i < lenName; i++){
+     newChart = i % 2 === 0 ? myName[i].toUpperCase() : myName[i].toLocaleLowerCase();
+    myNewName.push(newChart)
+}
+
+myNewName = myNewName.join("")
+
+console.log(myNewName)
