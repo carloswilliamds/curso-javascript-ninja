@@ -28,6 +28,90 @@ console.log("210.458.522-05",cleanCPF("210.458.522-05"));
 console.log("735 500 794 - 22",cleanCPF("735 500 794 - 22"));
 console.log("101.123-131x32",cleanCPF("101.123-131x32"));
 
+let myCPF = "48196102879"
+
+const ValidarDigito = (cpf, segundoDigito) =>{
+    let arrayCPF = null;
+    
+    // verifica se tem 9  ou 11 digitos 
+    if(cpf.length === 11){
+        arrayCPF = cpf.slice(0,9).split("");
+    } else if(cpf.length === 9) {
+        arrayCPF = cpf.split("");
+    }
+    
+    // Verifica se o segndo digito foi passado, se foi ele inclui no array
+    if(segundoDigito){
+        arrayCPF.push(segundoDigito)
+    }
+
+    // define se a validacao vai ser do primeiro ou segundo digito
+    const numbersValidateFirst = segundoDigito ? 11 : 10;
+
+    let maxValidate = numbersValidateFirst;
+    let minValidate = 2;
+    let sumValueFirstDigit = 0;
+
+    for(var i = 0; i <= numbersValidateFirst - minValidate; i++){
+        console.log(arrayCPF[i])
+        sumValueFirstDigit += arrayCPF[i] * maxValidate;
+        maxValidate--
+    }
+
+    let NumberValited = sumValueFirstDigit * 10  % 11
+    console.log(NumberValited)
+    return NumberValited;
+    
+}
+
+const returnDigit = (cpf) =>{
+    
+    // CPF com 9 ou 10 digitos
+
+    let arrayCPF = cpf.split("");
+    
+    const numberValidate = arrayCPF.length === 9 ? 10 : 11
+
+    let maxValidate = numberValidate;
+    let minValidate = 2;
+    let sumValueFirstDigit = calculo();
+
+    for(var i = 0; i <= numberValidate - minValidate; i++){
+        sumValueFirstDigit += arrayCPF[i] * maxValidate;
+        maxValidate--
+    }
+
+    return returnValue(sumValueFirstDigit)
+    
+    
+}
+
+const returnValue = (sumValueFirstDigit) => {
+    return sumValueFirstDigit * 10  % 11;
+}
+
+
+
+
+function geradorBaseCPF(){
+
+    return Math.round(Math.random() * 999999999)
+
+}
+
+function generateCpf(){
+    let cpf = geradorBaseCPF().toString().split("");
+    cpf.push(returnDigit(cpf.join("")))
+    cpf.push(returnDigit(cpf.join("")))
+    console.log(padraoCPF(cpf.join("")))
+}
+
+
+
+
+
+
+// ValidarDigito(myCPF,ValidarDigito(myCPF))
 
 /*
 Usando os CPFs limpos acima, deixe-os com a formatação correta de CPF.
