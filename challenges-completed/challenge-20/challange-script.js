@@ -15,10 +15,9 @@ resultado à uma variável chamada `username`. Se o usuário não digitar um
 nome, `username` deve receber "Desconhecido".
 Com a resposta, mostre um alert com a mensagem "Bem vindo [USERNAME]!"
 */
-let nome = prompt("Qual seu nome ?")
-console.log(doc)
+let nome = prompt("Qual seu nome ?") || "Desconhecido";
 
-nome ? console.log(nome) : nome = "Desconhecido"; console.log(nome)
+console.log(nome)
 
 /*
 Agora, pergunte ao usuário "Qual o seu e-mail?", atribuindo o resultado à
@@ -92,7 +91,7 @@ $button.addEventListener("click", (event) => {
     if(!$inputEmail.value){
         console.log("sua mae nao preencheu o e-mail")
     } else{
-        isValidEmail($inputEmail.value) ? null : console.log("e-mail incorreto babaca")
+        isValidEmail($inputEmail.value) ? null : console.log($inputEmail.value, " é  e-mail incorreto babaca")
     }
     if(!$message.value){
         console.log("sua mae nao preencheu a menssagem")
@@ -127,7 +126,6 @@ Alguns e-mails inválidos:
 */
 const  isValidEmail = (email) =>{
     const matchEmail =/^[\w\+\.\_]+@[\w\_]+\.\w+(\.\w{2})?$/
-
     return matchEmail.test(email)
 }
 
